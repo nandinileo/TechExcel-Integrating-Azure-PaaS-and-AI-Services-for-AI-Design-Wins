@@ -13,7 +13,9 @@ def get_hotels():
     logger.info(api_endpoint)
     response = requests.get(f"{api_endpoint}/Hotels", timeout=10)
     logger.info(response)
-    print(response)
+    response_data = response.read()
+    print(response_data)
+    
     return response
 
 @st.cache_data
