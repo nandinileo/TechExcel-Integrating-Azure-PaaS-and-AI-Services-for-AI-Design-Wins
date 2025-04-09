@@ -1,5 +1,8 @@
 import requests
 import streamlit as st
+import logging
+
+logger = logging.getLogger(__name__)
 
 st.set_page_config(layout="wide")
 
@@ -7,7 +10,9 @@ st.set_page_config(layout="wide")
 def get_hotels():
     """Return a list of hotels from the API."""
     api_endpoint = st.secrets["api"]["endpoint"]
+    logger.info(api_endpoint)
     response = requests.get(f"{api_endpoint}/Hotels", timeout=10)
+    logger.info(response)
     return response
 
 @st.cache_data
