@@ -13,7 +13,7 @@ def get_hotels():
     logger.info(api_endpoint)
     response = requests.get(f"{api_endpoint}/Hotels", timeout=10)
     logger.info(response)
-    response_data = response.read()
+    response_data = response.text
     print(response_data)
     
     return response
